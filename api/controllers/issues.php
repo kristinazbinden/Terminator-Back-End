@@ -1,5 +1,8 @@
 <?php
-header('Content_Type: application/json'); //sending back json
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE"); //sending back json
 include_once __DIR__ . '/../models/issue.php'; //include what is in the models directory up out the controllers dir and into models
 if($_REQUEST['action'] === 'index'){  //take a look at the (req.query or params) created an action query parameter with a value of index. if the action property = index then run the echo to send back json People::all (which basically returns the array)
     echo json_encode(Issues::all());
